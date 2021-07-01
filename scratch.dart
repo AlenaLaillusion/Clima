@@ -2,6 +2,14 @@ import 'dart:io';
 
 void main() {
   performTasks();
+  print(1);
+  print(2);
+  var waitingFuture =  Future<Object>.delayed(Duration(seconds: 5));
+  waitingFuture.then((value) => print(4));
+  for (var i = 0; i < 15; i++) {
+    print(i);
+    sleep(Duration(seconds: 1));
+  }
 }
 
 void performTasks() async {
@@ -16,7 +24,7 @@ void task1() {
 }
 
 Future task2() async {
-  Duration threeSecond = Duration(seconds: 3);
+  Duration threeSecond = Duration(seconds: 2);
   String result;
   await Future.delayed(threeSecond, () {
     result = 'task 2 data';
