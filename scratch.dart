@@ -1,17 +1,21 @@
 import 'dart:io';
 
 void main() {
-  performTasks();
-  print(1);
-  print(2);
-  var waitingFuture =  Future<Object>.delayed(Duration(seconds: 5));
-  waitingFuture.then((value) => print(4));
-  for (var i = 0; i < 15; i++) {
-    print(i);
-    sleep(Duration(seconds: 1));
+   performTasks();
+   final result = File('/Users/English/unt.txt').readAsString();
+   result.then((value) => print(value));
+   print(1);
+   print(2);
+   var waitingFuture =  Future<Object>.delayed(Duration(seconds: 5));
+   waitingFuture.then((value) => print(4));
+   for (var i = 0; i < 7; i++) {
+     print(i);
+     sleep(Duration(seconds: 1));
   }
+  final url =  Uri.parse("https://api.flutter.dev/");
+   final futurePage = HttpClient().getUrl(url);
+   futurePage.then((value) => print(value));
 }
-
 void performTasks() async {
   task1();
   String task2Result = await task2();
